@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle atom-autocomplete-threejs'
+      'command': 'atom-autocomplete-threejs:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'atom-autocomplete-threejs'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'atom-autocomplete-threejs:toggle'
+        }
+      ]
+    ]
+  }
+]
