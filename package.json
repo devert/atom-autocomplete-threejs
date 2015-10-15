@@ -1,18 +1,25 @@
 {
+  "author": "Dennis Evert",
   "name": "atom-autocomplete-threejs",
   "main": "./lib/atom-autocomplete-threejs",
-  "version": "0.0.0",
-  "description": "A short description of your package",
+  "version": "0.0.1",
+  "description": "three.js autocompletions for Atom editor",
   "keywords": [
+    "threejs",
+    "three.js",
+    "javascript",
+    "autocomplete"
   ],
   "activationCommands": {
-    "atom-workspace": "atom-autocomplete-threejs:toggle"
+    "atom-workspace": "autocomplete-threejs:toggle"
   },
   "repository": "https://github.com/atom/atom-autocomplete-threejs",
+  "bugs": {
+    "url": "https://github.com/devert/atom-autocomplete-threejs/issues"
+  },
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
