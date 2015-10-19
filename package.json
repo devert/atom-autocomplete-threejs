@@ -28,6 +28,7 @@
     }
   },
   "dependencies": {
-    "fuse.js": "^1.2.2"
+    "fuse.js": "^1.2.2",
+    "js-yaml": "^3.4.3"
   }
 }

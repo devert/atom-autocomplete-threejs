@@ -1,0 +1,13 @@
+classes:
+  Scene:
+    constructor: []
+    description: "What and where is to be rendered"
+    descriptionMoreURL: "http://threejs.org/docs/#Reference/Scenes/Scene"
+    properties: ["fog", "overrideMatrial", "autoUpdate"]
+    methods: []
+  Fog:
+    constructor: [hex, near, far]
+    description: "Linear Fog"
+    descriptionMoreURL: "http://threejs.org/docs/#Reference/Scenes/Fog"
+    properties: []
+    methods: []
