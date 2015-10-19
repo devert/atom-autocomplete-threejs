@@ -1,33 +1,41 @@
-fs = require 'fs'
-path = require 'path'
+Fuse = require('fuse.js');
 
 module.exports =
-  # This will work on JavaScript files, but not in js comments.
   selector: '.source.js'
-  disableForSelector: '.source.js .comment'
+  disableForSelector: '.source.js .comment, .source.js .string'
   filterSuggestions: true
 
-  # This will take priority over the default provider, which has a priority
-  # of 0.`excludeLowerPriority` will suppress any providers with a
-  # lower priority i.e. The default provider will be suppressed
-  inclusionPriority: 1
-  excludeLowerPriority: true
+  completions: []
 
   loadCompletions: ->
-    @completions = {}
-    fs.readFile path.resolve(__dirname, '..', 'completions.json'), (error, content) =>
-      @completions = JSON.parse(content) unless error?
-      return
+    classes = require("../completions.json")
+    for classname,classfunctions of classes
+      cls = {}
+      cls.text = classname
+      cls.type = "class"
+      @completions.push(cls)
+      for funcname,properties of classfunctions
+        func = {}
+        func.text = funcname
+        func.snippet = funcname+"("
+        func.leftLabel = classname+"."
+        for property,i in properties
+          if(i>0)
+            func.snippet += ","
+          func.snippet += "${"+(i+1)+":"+property+"}"
+        func.type = "function"
+        func.snippet+=")"
+        @completions.push(func)
 
-  # Required: Return a promise, an array of suggestions, or null.
-  getSuggestions: ({editor, bufferPosition, scopeDescriptor, prefix}) ->
-    new Promise (resolve) ->
-      resolve([text: 'something'])
-
-  # (optional): called _after_ the suggestion `replacementPrefix` is replaced
-  # by the suggestion `text` in the buffer
-  onDidInsertSuggestion: ({editor, triggerPosition, suggestion}) ->
-
-  # (optional): called when your provider needs to be cleaned up. Unsubscribe
-  # from things, kill any processes, etc.
-  dispose: ->
+  getSuggestions: (request) ->
+    {prefix} = request
+    suggestions = []
+    options = {
+      keys: ['text'],
+      threshold: 0.25
+    }
+    f = new Fuse(@completions, options)
+    suggestions = f.search(prefix)
+    for func in suggestions
+      func.replacementPrefix = prefix
+    suggestions

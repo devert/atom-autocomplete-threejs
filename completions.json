@@ -1,5 +1,8 @@
 {
-  "Scene": {
-    "copy": []
+  "THREE": {},
+  "THREE.Scene" : {
+    "fog": {},
+    "overrideMatrial": {},
+    "autoUpdate": {}
   }
 }

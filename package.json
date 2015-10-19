@@ -23,9 +23,11 @@
   "providedServices": {
     "autocomplete.provider": {
       "versions": {
-        "2.0.0": "provide"
+        "2.0.0": "getProvider"
       }
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "fuse.js": "^1.2.2"
+  }
 }

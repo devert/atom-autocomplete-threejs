@@ -1,0 +1,3 @@
+THREE.Scene()
+
+scene.fog()
