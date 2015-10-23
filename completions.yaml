@@ -1,13 +1,24 @@
 classes:
+
+  #---------------------------------------------------------------------------
+  # Scenes
+  # --------------------------------------------------------------------------
+
   Scene:
     constructor: []
-    description: "What and where is to be rendered"
-    descriptionMoreURL: "http://threejs.org/docs/#Reference/Scenes/Scene"
-    properties: ["fog", "overrideMatrial", "autoUpdate"]
+    description: What and where is to be rendered
+    descriptionMoreURL: http://threejs.org/docs/#Reference/Scenes/Scene
+    properties: fog, overrideMatrial, autoUpdate]
     methods: []
   Fog:
     constructor: [hex, near, far]
-    description: "Linear Fog"
-    descriptionMoreURL: "http://threejs.org/docs/#Reference/Scenes/Fog"
-    properties: []
-    methods: []
+    description: Linear Fog
+    descriptionMoreURL: http://threejs.org/docs/#Reference/Scenes/Fog
+    properties: [name, color, density]
+    methods: [clone]
+  FogExp2:
+    constructor: [hex, density]
+    description: Exponential Fog
+    descriptionMoreURL: http://threejs.org/docs/#Reference/Scenes/FogExp2
+    properties: [name, color, density]
+    methods: [clone]
