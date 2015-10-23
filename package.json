@@ -28,8 +28,11 @@
     }
   },
   "dependencies": {
+    "espree": "^2.2.5",
+    "estraverse": "^4.1.1",
     "fuzzaldrin": "^2.1.0",
-    "js-yaml": "^3.4.3"
+    "js-yaml": "^3.4.3",
+    "three.js": "^0.73.0"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",
